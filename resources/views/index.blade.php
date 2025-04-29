@@ -16,19 +16,35 @@
         <div class="container w-full mx-auto flex justify-between items-center px-8 py-2">
             <!-- Logo di pojok kiri -->
             <a class="navbar-brand" href="#">
-                <img id="logo" src="/assets/img/logo.png" alt="Logo"
-                    class="h-12 w-auto transition-all duration-300">
+                <img id="logo" src="/assets/img/logo.png" alt="Logo" class="h-12 w-auto transition-all duration-300">
             </a>
 
+            <!-- Tombol Toggle untuk Mobile -->
+            <button id="menu-toggle" class="block md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
             <!-- Menu Navbar -->
-            <nav id="navmenu" class="navmenu">
-                <ul class="flex space-x-6">
+            <nav id="navmenu" class="hidden md:flex space-x-6">
+                <ul class="md:flex md:space-x-6 hidden">
                     <li><a href="#home" class="font-bold">Home</a></li>
                     <li><a href="#about" class="font-bold">About</a></li>
-                    <a href="/menu" class="font-bold">Produk</a>
+                    <li><a href="/menu" class="font-bold">Produk</a></li>
                     <li><a href="#location" class="font-bold">Location</a></li>
                 </ul>
             </nav>
+        </div>
+
+        <!-- Dropdown Menu untuk Mobile -->
+        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md py-2 md:hidden">
+            <ul class="flex flex-col space-y-2 text-center">
+                <li><a href="#home" class="block py-2">Home</a></li>
+                <li><a href="#about" class="block py-2">About</a></li>
+                <li><a href="/menu" class="block py-2">Produk</a></li>
+                <li><a href="#location" class="block py-2">Location</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -75,50 +91,53 @@
             }
         });
     </script>
+    <!-- JavaScript untuk menu toggle -->
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
 
 
-
-
-
-
-    <!-- Homepage & Slider -->
-    <div id="home" class="container mt-9">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-center align-items-center bg-info text-black p-5"
-                        style="border-radius: 0px; height: 525px;">
-                        <h2>Slide 1</h2>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="d-flex justify-content-center align-items-center bg-warning text-black p-5"
-                        style="border-radius: 0px; height: 525px;">
-                        <h2>Slide 2</h2>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="d-flex justify-content-center align-items-center bg-success text-white p-5"
-                        style="border-radius: 0px; height: 525px;">
-                        <h2>Slide 3</h2>
-                    </div>
+  <!-- Homepage & Slider -->
+<div id="home" class="container mt-9">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center align-items-center bg-info text-black p-5 w-full h-[425px] md:h-[425px] sm:h-[100px] sm:w-[90vw]"
+                    style="border-radius: 0px;">
+                    <h2>Slide 1</h2>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center bg-warning text-black p-5 w-full h-[350px] md:h-[350px] sm:h-[100px] sm:w-[90vw]"
+                    style="border-radius: 0px;">
+                    <h2>Slide 2</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center bg-success text-white p-5 w-full h-[350px] md:h-[350px] sm:h-[100px] sm:w-[90vw]"
+                    style="border-radius: 0px;">
+                    <h2>Slide 3</h2>
+                </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+        </div>
     </div>
+</div>
+
 
     <!--about -->
 
@@ -193,120 +212,115 @@
             transform: scale(1.2);
             /* Membesar 1.2x saat disentuh */
         }
+
     </style>
 
 
 
-    <!-- Tombol Cek Produk -->
-    <div class="mt-6 flex justify-center">
-        <a href="/menu"
-            class="bg-gray-300 text-black text-lg font-semibold px-6 py-3 rounded-2xl shadow-md hover:bg-gray-400">
-            Cek detail produk
-        </a>
-    </div>
-    </div>
+   <!-- Tombol Cek Produk -->
+<div class="mt-[-20px] flex justify-center ">
+    <a href="/menu"
+        class="bg-gray-300 text-black text-lg font-semibold px-6 py-3 rounded-2xl shadow-md hover:bg-gray-400">
+        Cek detail produk
+    </a>
+</div>
 
 
-    <!-- REVIEW -->
-    <div class="container mt-20 mb-10 mx-auto max-w-6xl bg-[#dbe2ef] p-10 rounded-lg shadow-md" style="height:400px">
-        <h1 class="text-5xl font-bold mb-15">REVIEW</h1>
-        <div class="grid grid-cols-3 gap-4 mt-10">
-            <img src="/assets/img/review1.png" alt="foto" class="review-img cursor-pointer"
-                onclick="openModal(this)">
-            <img src="/assets/img/review2.png" alt="foto" class="review-img cursor-pointer"
-                onclick="openModal(this)">
-            <img src="/assets/img/review3.png" alt="foto" class="review-img cursor-pointer"
-                onclick="openModal(this)">
+
+
+<!-- review -->
+
+<div class="container-fluid mt-[-20px] md:mt-20 px-0">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center align-items-center w-full h-[500px] md:h-[450px] lg:h-[500px]">
+                    <img src="/assets/img/review1.png" alt="foto" class="review w-[90%] md:w-[65%] lg:w-[70%] h-auto object-contain rounded-xl">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center w-full h-[500px] md:h-[450px] lg:h-[500px]">
+                    <img src="/assets/img/review2.png" alt="foto" class="review w-[90%] md:w-[65%] lg:w-[70%] h-auto object-contain rounded-xl">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center align-items-center w-full h-[500px] md:h-[450px] lg:h-[500px]">
+                    <img src="/assets/img/review3.png" alt="foto" class="review w-[90%] md:w-[65%] lg:w-[70%] h-auto object-contain rounded-xl">
+                </div>
+            </div>
         </div>
-    </div>
 
-    <!-- Modal (Pop-up) -->
-    <div id="imageModal"
-        class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 hidden flex justify-center items-center z-50">
-        <div class="relative bg-white p-5 rounded-lg shadow-lg">
-            <button class="absolute top-2 right-2 text-xl font-bold text-gray-600 hover:text-gray-900"
-                onclick="closeModal()">&times;</button>
-            <img id="modalImage" class="max-w-[90vw] max-h-[80vh] rounded-lg">
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
         </div>
+
     </div>
+</div>
 
-    <!-- CSS untuk efek hover -->
-    <style>
-        .review-img {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
+<style>
+    #carouselExample .carousel-indicators {
+        bottom: 5px !important; /* Deketin lagi */
+    }
+    @media (max-width: 768px) {
+        #carouselExample .carousel-item .d-flex {
+            height: 300px !important; /* Tinggi carousel di mobile jadi lebih pendek */
         }
-
-        .review-img:hover {
-            transform: scale(1.1);
+        #carouselExample .carousel-indicators {
+            bottom: 5px !important; /* Semakin dekat ke gambar */
         }
-    </style>
-
-    <!-- JavaScript untuk modal -->
-    <script>
-        function openModal(img) {
-            document.getElementById("imageModal").classList.remove("hidden");
-            document.getElementById("modalImage").src = img.src;
-        }
-
-        function closeModal() {
-            document.getElementById("imageModal").classList.add("hidden");
-        }
-    </script>
+    }
+</style>
 
 
 
-    <!--adres-->
+
+
+    <!-- Address Section -->
     <div id="location" class="container mt-20 mb-5 mx-auto max-w-6xl bg-[#dbe2ef] p-10 rounded-lg shadow-md">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <!-- Address -->
-            <div class="self-start pt-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
                 <p class="mb-4 font-bold text-4xl">ADDRESS</p>
                 <p class="text-2xl">Kp. Semplak Rt 04/03 Kelurahan Bubulak</p>
                 <p class="text-2xl">45 Kec. Bogor Barat Kota Bogor 16115</p>
-
                 <p class="mb-4 mt-6 font-bold text-4xl">OPEN HOUR</p>
                 <p class="text-2xl">Senin - Sabtu, Pukul 08.00 AM - 09.00 PM</p>
-
-                <!-- Shopee & WhatsApp -->
-                <div class="flex flex-col items-center gap-2 mt-20 md:flex-col md:items-start">
-                    <!-- Shopee -->
-                    <a href="https://shopee.co.id/yytolshop" target="_blank"
-                        class="flex items-center gap-3 bg-gray-300 text-black text-lg font-semibold px-4 py-1 rounded-full shadow-md hover:bg-gray-400 transition w-64">
-                        <img src="/assets/img/removesh.png" alt="Shopee" class="w-8 h-8">
-                        <span>yytolshop</span>
-                    </a>
-
-
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/628581925768" target="_blank"
-                        class="flex items-center gap-3 bg-gray-300 text-black text-lg font-semibold px-8 py-0 rounded-full shadow-md hover:bg-gray-400 transition w-64">
-                        <img src="/assets/img/wa.png" alt="WhatsApp" class="w-10 h-10">
-                        <span>085892727099</span>
-                    </a>
-
-                </div>
-
             </div>
-
-            <!-- Google Maps -->
-            <div class="flex justify-center w-300 p-10">
+            <!--google maps -->
+            <div class="flex justify-center w-full mb-10 md:mb-0">
                 <div class="w-full max-w-lg h-[300px]">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d434.8229398245917!2d106.756491!3d-6.5560804!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58f0f80f497%3A0xed3b39d4157ef6c5!2sYYTOLSHOP!5e1!3m2!1sid!2sid!4v1740022784410!5m2!1sid!2sid"
-                        class="w-full h-full rounded-lg shadow-lg" style="border:0;" allowfullscreen=""
-                        loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d434.8229398245917!2d106.756491!3d-6.5560804!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c58f0f80f497%3A0xed3b39d4157ef6c5!2sYYTOLSHOP!5e1!3m2!1sid!2sid!4v1740022784410!5m2!1sid!2sid" class="w-full h-full rounded-lg shadow-lg" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
+        
+        <!-- Shopee -->
+        <a href="https://shopee.co.id/yytolshop" target="_blank"
+            class="flex items-center gap-3 bg-gray-300 text-black text-lg font-semibold px-4 py-1 rounded-full shadow-md hover:bg-gray-400 transition w-64">
+            <img src="/assets/img/removesh.png" alt="Shopee" class="w-8 h-8">
+            <span>yytolshop</span>
+        </a>
+        
+        <!-- WhatsApp -->
+        <a href="https://wa.me/628581925768" target="_blank"
+            class="flex items-center gap-3 bg-gray-300 text-black text-lg font-semibold px-8 py-0 rounded-full shadow-md hover:bg-gray-400 transition w-64 mt-2">
+            <img src="/assets/img/wa.png" alt="WhatsApp" class="w-10 h-10">
+            <span>085892727099</span>
+        </a>
     </div>
-
-
-
-
+    </div>
 
     <!-- Footer -->
     <footer class="bg-[#dbe2ef] text-black text-center py-3 mt-5">
